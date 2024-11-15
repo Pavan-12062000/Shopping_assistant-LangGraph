@@ -125,8 +125,6 @@ def checkout(cart, user_confirmed=False):
     """
     if not cart:
         return "Your cart is empty. Please add some items before proceeding to checkout."
-    
-    print("inside checkout", cart, user_confirmed)
 
     total_price = sum(item["UnitPrice"] * item["Quantity"] for item in cart)
     

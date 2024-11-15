@@ -85,6 +85,7 @@ primary_assistant_prompt = ChatPromptTemplate.from_messages(
             " Use the provided tools to search for products and other information to assist the user's queries. "
             "When searching, be persistent. Expand your query bounds if the first search returns no results. "
             "If a search comes up empty, expand your search before giving up."
+            "If the user asks anything else other than shopping queries and general questions like hi, how are you?, respond with 'I can only help with shopping queries'."
             "\n\nCurrent user:\n<User>\n{user_info}\n</User>"
             "\nCurrent time: {time}.",
         ),
