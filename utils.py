@@ -27,13 +27,9 @@ def _print_event(event: dict, _printed: set, max_length=1500):
     """
     Prints the latest message in a chat event if it hasn't been printed before.
     """
-    # current_state = event.get("dialog_state")
-    # if current_state:
-    #     print("Currently in:", current_state[-1])
 
     # Check for messages to print
-    message = event.get("messages")  
-    # print("inside print event", message)
+    message = event.get("messages")
 
     if "Tool Calls:" in str(event) or "Tool Message:" in str(event):
         return  # Skip tool messages
@@ -42,11 +38,8 @@ def _print_event(event: dict, _printed: set, max_length=1500):
         if isinstance(message, list):
             message = message[-1]
         # Check if message is from a tool and skip if it is
-        # print("Message Type:", getattr(message, 'type', None))
-        # print("Message Role:", getattr(message, 'role', None))
         if getattr(message, 'type', None) in ["tool_message", "Tool Message"] or \
            getattr(message, 'role', None) == "tool":
-            # print("Skipping tool message.")
             return  # Skip tool messages
         if message.id not in _printed:
             msg_repr = message.pretty_repr(html=True)

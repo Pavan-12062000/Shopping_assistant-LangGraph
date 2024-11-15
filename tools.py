@@ -130,11 +130,9 @@ def checkout(cart, user_confirmed=False):
     
     # If user has not confirmed, prompt for confirmation
     if not user_confirmed:
-        print("Checkout initiated. The total price is ${total_price:.2f}. Do you want to proceed with the payment? (yes/no)")
         return f"Checkout initiated. The total price is ${total_price:.2f}. Do you want to proceed with the payment? (yes/no)"
     
     # Proceed with checkout if confirmation is received
-    print(f"Confirmed! Processing payment for ${total_price:.2f}.")
     return f"Confirmed! Processing payment for ${total_price:.2f}."
 
 
